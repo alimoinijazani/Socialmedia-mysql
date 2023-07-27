@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
 export default function ProtectedRoute() {
-  const currentUser = false;
+  const currentUser = true;
   if (!currentUser) {
     return <Navigate to="/login" />;
   }
