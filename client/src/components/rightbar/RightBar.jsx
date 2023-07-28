@@ -1,3 +1,4 @@
+import './rightBar.scss';
 export default function RightBar() {
   return (
     <div className="rightBar">
@@ -6,10 +7,7 @@ export default function RightBar() {
           <span>Suggestions For You</span>
           <div className="user">
             <div className="userInfo">
-              <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
+              <img src="noAvater.png" alt="" />
               <span>Jane Doe</span>
             </div>
             <div className="buttons">
@@ -20,7 +18,7 @@ export default function RightBar() {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="://ima881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
                 alt=""
               />
               <span>Jane Doe</span>
