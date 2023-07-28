@@ -5,7 +5,7 @@ import RightBar from '../rightbar/RightBar';
 
 export default function Layout() {
   return (
-    <div>
+    <div className="theme-dark">
       <NavBar />
       <div style={{ display: 'flex' }}>
         <LeftBar />
