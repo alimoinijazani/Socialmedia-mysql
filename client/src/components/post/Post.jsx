@@ -6,6 +6,7 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState } from 'react';
 import './post.scss';
+import Comments from '../comments/Comments';
 export default function Post({ post }) {
   const liked = false;
   const [commentOpen, setCommentOpen] = useState(false);
