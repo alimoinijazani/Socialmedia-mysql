@@ -15,8 +15,7 @@
     overflow: hidden;
     .left {
       flex: 1;
-      background: linear-gradient(rgb(26, 26, 78), rgb(57, 57, 12)),
-        url('/client/public/register.jpeg') center;
+      background: linear-gradient(rgb(26, 26, 78), rgb(57, 57, 12));
       background-size: cover;
       display: flex;
       flex-direction: column;

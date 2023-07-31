@@ -1,22 +1,47 @@
-import { Link } from 'react-router-dom';
-import './login.scss';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/authContext';
+import './login.scss';
 
-export default function Login() {
-  const { login } = useContext(AuthContext);
-  const handleLogin = () => {
-    login();
+const Login = () => {
+  const [inputs, setInputs] = useState({
+    username: '',
+    password: '',
+  });
+  const [err, setErr] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+  const { login, currentUser } = useContext(AuthContext);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      await login(inputs);
+    } catch (err) {
+      setErr(err?.response?.data);
+    }
+  };
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/');
+    }
+  }, [currentUser, navigate]);
   return (
     <div className="login">
       <div className="card">
         <div className="left">
-          <h1>Hello worlds</h1>
+          <h1>Hello World.</h1>
           <p>
-            Lorem odit nemo tempore asperiores, dolorum id, aliquam at? Nostrum?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
+            alias totam numquam ipsa exercitationem dignissimos, error nam,
+            consequatur.
           </p>
-          <span>dont you have an account?</span>
+          <span>Dont you have an account?</span>
           <Link to="/register">
             <button>Register</button>
           </Link>
@@ -24,12 +49,25 @@ export default function Login() {
         <div className="right">
           <h1>Login</h1>
           <form>
-            <input type="text" placeholder="username" />
-            <input type="password" placeholder="password" />
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+            />
+            <div className="error">{err && err}</div>
             <button onClick={handleLogin}>Login</button>
           </form>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Login;

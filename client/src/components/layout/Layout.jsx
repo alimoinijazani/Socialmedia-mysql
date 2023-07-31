@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 export default function Layout() {
   const { darkMode } = useContext(DarkModeContext);
-  console.log(darkMode);
+
   return (
     <div className={`theme-${darkMode ? 'dark' : 'light'}`}>
       <NavBar />

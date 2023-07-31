@@ -66,6 +66,7 @@ export default function Register() {
               name="password"
               onChange={handleChange}
             />
+            <div className="error">{err && err}</div>
             <button onClick={handleClick}>Register</button>
           </form>
         </div>
